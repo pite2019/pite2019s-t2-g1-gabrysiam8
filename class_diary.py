@@ -22,6 +22,12 @@ class Student:
 			if ls.lesson==lesson:
 				return sum(ls.grades)/len(ls.grades)
 
+	def add_presence(lesson):
+		for ls in self.lessons_scores:
+			if ls.lesson==lesson:
+				ls.attendance += 1
+
+
 
 
 
@@ -44,7 +50,8 @@ class Lesson:
 					ls.add_grade(grade)
 
 	def start_lesson(self, *students):
-		pass
+		for student in students:
+			student.add_presence(self)
 
 
 
